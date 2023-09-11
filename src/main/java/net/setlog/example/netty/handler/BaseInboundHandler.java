@@ -35,7 +35,7 @@ public class BaseInboundHandler extends ChannelInboundHandlerAdapter {
     public void handlerRemoved(ChannelHandlerContext ctx) {
         Channel incoming = ctx.channel();
         for(Channel channel : channels){
-            channel.writeAndFlush("[SERVER] - " + incoming.remoteAddress() + " has joined!\r\n");
+            channel.writeAndFlush("[SERVER] - " + incoming.remoteAddress() + " has left!\r\n");
         }
         channels.remove( incoming );
     }
